@@ -1,4 +1,4 @@
-class AngusMcFife extends GameObject implements ChangeStat{
+class AngusMcFife extends GameObject{
   
   char left;
   char right;
