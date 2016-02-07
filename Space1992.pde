@@ -63,14 +63,39 @@ void setup(){
   
   generalText = createFont("cs.ttf", 32);
   textFont(generalText);
-  text("In the distant future of the year 1992, War has returned to the galaxy...\nThe evil wizard Zargothrax has broken free from his prison of liquid ice on Saturn's moon Triton\nand has raised an army of chaos wizards to conquer the galaxy\nCan you, as the legendary hero, Angus McFife XIII, save the mighty citadel of Dundee and the rest of the Galaxy?\nRide forth for the eternal glory of Dundee!", width/2, 300);
+  text("In the distant future of the year 1992, War has returned to the galaxy...\nThe evil wizard Zargothrax has broken free from his prison of liquid ice on Saturn's moon Triton\nand has raised an army of chaos wizards to conquer the galaxy\nCan you, as the legendary hero, Angus McFife XIII,\nsave the mighty citadel of Dundee and the rest of the Galaxy?\nRide forth for the eternal glory of Dundee!", width/2, 300);
+  gameState = "homeScreen";
   
 }//end setup
 
 
 void draw(){
-  while(gameState.matches("homeScreen"){
+  image(backgroundImage,0,0);
+  if(gameState.matches("homeScreen")){
     //set up fonts
+    title = createFont("pdark.ttf",33);
+    textFont(title);
+    fill(0);
+    textAlign(CENTER);
+    text("Space 1992: The Rise of The Chaos Wizards!", width/2, 100);
+    fill(129,254,166);
+    textSize(32);
+    text("Space 1992: The Rise of The Chaos Wizards!", width/2, 100);
+    
+    generalText = createFont("cs.ttf",32);
+    textFont(generalText);
+    text("In the distant future of the year 1992, War has returned to the galaxy...\nThe evil wizard Zargothrax has broken free from his prison of liquid ice on Saturn's moon Triton\nand has raised an army of chaos wizards to conquer the galaxy\nCan you, as the legendary hero, Angus McFife XIII,\nsave the mighty citadel of Dundee and the rest of the Galaxy?\nRide forth for the eternal glory of Dundee!", width/2, 300);   
+    
+  }//end while
+
+  else if(gameState.matches("gameOn")){
+    image(backgroundImage,0,0);
+    cp5.hide();
+    
+  }//end while
+  
+  else if(gameState.matches("gameOver")){
+    image(backgroundImage,0,0);
     title = createFont("pdark.ttf",33);
     textFont(title);
     fill(0);
@@ -82,27 +107,9 @@ void draw(){
     
     generalText = createFont("cs.ttf", 32);
     textFont(generalText);
-    text("In the distant future of the year 1992, War has returned to the galaxy...\nThe evil wizard Zargothrax has broken free from his prison of liquid ice on Saturn's moon Triton\nand has raised an army of chaos wizards to conquer the galaxy\nCan you, as the legendary hero, Angus McFife XIII, save the mighty citadel of Dundee and the rest of the Galaxy?\nRide forth for the eternal glory of Dundee!", width/2, 300);   
-    
+    text("You have failed!!!\nThe Evil Wizard Zargothrax has succeeded in his quest to conquer\n The Mighty Scottish Citadel of Dundee and the rest of the galaxy...\n Zargothrax now rides forth to conquer the universe\nwith his Chaos wizards atop undead unicorns of war...",width/2,300);
   }//end while
-  
-  while(gameState.matches("gameOn")){
-    image(backgroundImage,0,0);
-    
-  }//end while
-  
-  while(gameState.matches("gameOver")){
-    image(backgroundImage,0,0);
-    text("Space 1992: The Rise of The Chaos Wizards!", width/2, 100);
-    fill(129,254,166);
-    textSize(32);
-    text("Space 1992: The Rise of The Chaos Wizards!", width/2, 100);
-    
-    generalText = createFont("cs.ttf", 32);
-    textFont(generalText);
-    text("You have failed!!!\nThe Evil Wizard Zargothrax has succeeded in his quest to conquer The Mighty Scottish Citadel of Dundee and the rest of the galaxy...\n Zargothrax now rides forth to conquer the universe with his Chaos wizards atop undead unicorns of war...",width/2,300);
-  }//end while
-  
+
 }//end draw
 
 void beginGame(){
