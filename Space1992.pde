@@ -61,7 +61,9 @@ void setup(){
   textSize(32);
   text("Space 1992: The Rise of The Chaos Wizards!", width/2, 100);
   
-  
+  generalText = createFont("cs.ttf", 32);
+  textFont(generalText);
+  text("In the distant future of the year 1992, War has returned to the galaxy...\nThe evil wizard Zargothrax has broken free from his prison of liquid ice on Saturn's moon Triton\nand has raised an army of chaos wizards to conquer the galaxy\nCan you, as the legendary hero, Angus McFife XIII, save the mighty citadel of Dundee and the rest of the Galaxy?\nRide forth for the eternal glory of Dundee!", width/2, 300);
   
 }//end setup
 
