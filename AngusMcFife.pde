@@ -54,38 +54,40 @@ class AngusMcFife extends GameObject{
   }
   
   public void update(){
-      if(keys[left]){
-        if(pos.x>width/3+5){
-          pos.x-=5;
-            
-          
-        }//end if
-        
-        else{
-          
-        }//end else
-        
-      }//end if left
-      
-      if(keys[right]){
-        if(pos.x<((width/3)*2)-80){
-          pos.x+=5;
-          
-        }//end if
+    
+    if(keys[left]){
+      if(pos.x>width/3+5){
+        pos.x-=5;
+        System.out.print("Left");           
         
       }//end if
       
-      if(keys[swing]&& recoveryTime>60){
+      else{
+        System.out.print("test");
+      }//end else
+      
+    }//end if left
+    
+    if(keys[right]){
+      if(pos.x<((width/3)*2)-80){
+        pos.x+=5;
+        System.out.print("right");
         
-        AstralHammer hammer = new AstralHammer();
-        hammer.pos.x=pos.x;
-        hammer.pos.y=pos.y;
-        gameObjects.add(hammer);
-        recoveryTime=0;
-      }//end 
+      }//end if
       
-      recoveryTime+=1;
+    }//end if
+    
+    if(keys[swing]&& recoveryTime>60){
       
+      AstralHammer hammer = new AstralHammer();
+      hammer.pos.x=pos.x;
+      hammer.pos.y=pos.y;
+      gameObjects.add(hammer);
+      recoveryTime=0;
+    }//end 
+    
+    recoveryTime+=1;
+    
       
     
   }//end update

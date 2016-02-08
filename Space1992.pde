@@ -10,6 +10,8 @@ import ddf.minim.effects.*;
 ControlP5 cp5;
 ControlP5 cp6;
 
+
+
 //create ArrayList for game objects
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
@@ -42,6 +44,8 @@ int wizNum=0;
 float centerX = 1600/2-40;
 float heightVal = 900-150;
 
+AngusMcFife hero = new AngusMcFife('A','D',' ', centerX, heightVal);
+
 void setup(){
   size(1600,900);
   
@@ -57,9 +61,9 @@ void setup(){
   cp5.addButton("beginGame").setValue(1).setPosition(100,height-40).setSize(80,20).setLabel("Start Game");
   cp5.addButton("viewControls").setValue(2).setPosition(200, height-40).setSize(80,20).setLabel("View Controls");
   cp5.addButton("about").setValue(0).setPosition(300,height-40).setSize(80,20).setLabel("About");
-  cp6.addButton("easyMode").setValue(0).setPosition(600,height-40).setSize(40,20).setLabel("Easy Mode");
+
   
-  cp6.hide();
+
   //set up fonts
   title = createFont("pdark.ttf",33);
   textFont(title);
@@ -102,7 +106,7 @@ void draw(){
   }//end if
 
   else if(gameState.matches("gameOn")){
-    image(backgroundImage,0,0);
+    
     cp5.hide();
     for(int i=gameObjects.size()-1; i>=0; i--){
       GameObject go = gameObjects.get(i);
@@ -130,7 +134,7 @@ void draw(){
     text("You have failed!!!\nThe Evil Wizard Zargothrax has succeeded in his quest to conquer\n The Mighty Scottish Citadel of Dundee and the rest of the galaxy...\n Zargothrax now rides forth to conquer the universe\nwith his Chaos wizards atop undead unicorns of war...",width/2,300);
     
     for(int i=gameObjects.size()-1;i>=0;i--){
-      gameObjects.remove(i);
+      
     
     }//end for
     
@@ -186,7 +190,7 @@ void draw(){
 
 void beginGame(){
   gameState=("gameOn");
-  AngusMcFife hero = new AngusMcFife('A','D',' ', centerX, heightVal);
+  image(backgroundImage,0,0);
   gameObjects.add(hero);
   
 }//end beginGame
@@ -246,3 +250,14 @@ void randomSong(){
   
 
 }//end randomSong
+
+void keyPressed(){
+  keys[keyCode]= true;
+  
+}//end 
+
+void keyReleased(){
+  keys[keyCode]=false;
+  
+}//end keyreleased
+
