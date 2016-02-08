@@ -116,6 +116,11 @@ void draw(){
     textFont(generalText);
     text("You have failed!!!\nThe Evil Wizard Zargothrax has succeeded in his quest to conquer\n The Mighty Scottish Citadel of Dundee and the rest of the galaxy...\n Zargothrax now rides forth to conquer the universe\nwith his Chaos wizards atop undead unicorns of war...",width/2,300);
     
+    for(int i=gameObjects.size()-1;i>=0;i--){
+      gameObjects.remove(i);
+    
+  }//end for
+    
   }//end else if
   
   else if(gameState.matches("aboutGame")){
@@ -168,6 +173,7 @@ void draw(){
 
 void beginGame(){
   gameState=("gameOn");
+  
   
 }//end beginGame
 
