@@ -14,11 +14,11 @@ ControlP5 cp6;
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
 //Create string variables
-String movementDir;
-String gameState;
+static String movementDir;
+static String gameState;
 
 //boolean to hold value
-boolean enemyOnEdge;
+static boolean enemyOnEdge;
 boolean antiAutoPlay = false;
 
 //create variables to hold key status
@@ -38,6 +38,9 @@ String songFile;
 
 //integer to hold the number of wizards
 int wizNum=0;
+
+float centerX = 1600/2-40;
+float heightVal = 900-150;
 
 void setup(){
   size(1600,900);
@@ -176,6 +179,7 @@ void draw(){
 
 void beginGame(){
   gameState=("gameOn");
+  AngusMcFife hero = new AngusMcFife('A','D',' ', centerX, heightVal);
   
   
 }//end beginGame
