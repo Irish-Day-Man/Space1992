@@ -61,8 +61,6 @@ void setup(){
   cp5.addButton("viewControls").setValue(2).setPosition(200, height-40).setSize(80,20).setLabel("View Controls");
   cp5.addButton("about").setValue(0).setPosition(300,height-40).setSize(80,20).setLabel("About");
 
-  
-
   //set up fonts
   title = createFont("pdark.ttf",33);
   textFont(title);
@@ -117,7 +115,7 @@ void draw(){
         
     stroke(255);
     noFill();
-    rect(400,0,800,800);
+    rect(400,0,880,850);
     textAlign(LEFT);
     textFont(title);
     fill(129,254,166);
@@ -126,13 +124,14 @@ void draw(){
     text("Score: " + score ,100,400);
     if(frameCount%90==0){
       
-      if(frameCount>300){
+      if(frameCount>420){
       
         if(enemyOnEdge == true){
           for(int i=gameObjects.size()-1;i>=0;i--){
             GameObject go = gameObjects.get(i);
             if(go instanceof ChaosWizard){
               go.pos.y+=50;
+              
              
             }//end if 
             enemyOnEdge=false;

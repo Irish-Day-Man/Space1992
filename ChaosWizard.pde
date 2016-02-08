@@ -122,7 +122,7 @@ class ChaosWizard extends GameObject{
         
       }//end else
       
-      if(!(frameCount<120)){
+      if(!(frameCount<90)){
         
         if(pos.y>650){
           gameState = "gameOver";
