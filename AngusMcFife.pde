@@ -56,22 +56,20 @@ class AngusMcFife extends GameObject{
   public void update(){
     
     if(keys[left]){
-      if(pos.x>width/3+5){
-        pos.x-=5;
-        System.out.print("Left");           
+      if(pos.x>+150){
+        pos.x-=5;      
         
       }//end if
       
       else{
-        System.out.print("test");
+
       }//end else
       
     }//end if left
     
     if(keys[right]){
-      if(pos.x<((width/3)*2)-80){
+      if(pos.x<((width-150){
         pos.x+=5;
-        System.out.print("right");
         
       }//end if
       
