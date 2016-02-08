@@ -199,6 +199,7 @@ void beginGame(){
   image(backgroundImage,0,0);
   gameObjects.add(hero);
   hero.pos.x= centerX;
+  createEnemies();
   
 }//end beginGame
 
