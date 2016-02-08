@@ -56,7 +56,7 @@ class AngusMcFife extends GameObject{
   public void update(){
     
     if(keys[left]){
-      if(pos.x>+150){
+      if(pos.x>+400){
         pos.x-=5;      
         
       }//end if
@@ -68,7 +68,7 @@ class AngusMcFife extends GameObject{
     }//end if left
     
     if(keys[right]){
-      if(pos.x<((width-150){
+      if(pos.x<width-400){
         pos.x+=5;
         
       }//end if
@@ -81,12 +81,11 @@ class AngusMcFife extends GameObject{
       hammer.pos.x=pos.x;
       hammer.pos.y=pos.y;
       gameObjects.add(hammer);
+      score -=5;
       recoveryTime=0;
     }//end 
     
     recoveryTime+=1;
-    
-      
     
   }//end update
   

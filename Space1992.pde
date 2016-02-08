@@ -10,14 +10,13 @@ import ddf.minim.effects.*;
 ControlP5 cp5;
 ControlP5 cp6;
 
-
-
 //create ArrayList for game objects
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
 //Create string variables
 static String movementDir;
 static String gameState;
+static int score = 0;
 
 //boolean to hold value
 static boolean enemyOnEdge;
@@ -114,6 +113,13 @@ void draw(){
       go.render();
      
     }//end for
+    
+    textAlign(LEFT);
+    textFont(title);
+    fill(129,254,166);
+    textSize(16);
+    
+    text("Score: " + score ,100,400);
     
     
   }//end else if
