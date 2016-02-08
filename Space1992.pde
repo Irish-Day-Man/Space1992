@@ -14,7 +14,7 @@ ControlP5 cp6;
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
 //Create string variables
-static String movementDir;
+static String movementDir="r";
 static String gameState;
 static int score = 0;
 
@@ -114,6 +114,11 @@ void draw(){
      
     }//end for
     
+    enemyOnEdge=false;
+    
+    fill(255);
+    noFill();
+    rect(400,5,800,800);
     textAlign(LEFT);
     textFont(title);
     fill(129,254,166);
@@ -216,7 +221,7 @@ void about(){
 }//end about
 
 void createEnemies(){
-  for(int i=400;i<1200;i+=100){
+  for(int i=400;i<900;i+=100){
     for(int j=0;j<400;j+=100){
       ChaosWizard enemy = new ChaosWizard(i, j);
       gameObjects.add(enemy);

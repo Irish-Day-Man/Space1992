@@ -100,19 +100,19 @@ class ChaosWizard extends GameObject{
   
   void update(){
     
-    if(pos.x<100){
+    if(pos.x<450){
       movementDir=("r");
       enemyOnEdge = true;
       
     }//end if
     
-    if(pos.x>width-200){
+    if(pos.x>width-450){
       movementDir=("l");
       enemyOnEdge = true;
       
     }//end if    
   
-    if(frameCount %30 ==0){
+    if(frameCount %90 ==0){
       
       if(movementDir.matches("r")){
         pos.x += 100;
@@ -137,6 +137,7 @@ class ChaosWizard extends GameObject{
         
         if(enemyOnEdge==true){
           pos.y += 50;
+          
           if(pos.y>650){
             gameState = "gameover";
             
