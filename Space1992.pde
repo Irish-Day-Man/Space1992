@@ -215,7 +215,7 @@ void about(){
 }//end about
 
 void createEnemies(){
-  for(int i=0;i<1000;i+=100){
+  for(int i=400;i<1200;i+=100){
     for(int j=0;j<400;j+=100){
       ChaosWizard enemy = new ChaosWizard(i, j);
       gameObjects.add(enemy);
