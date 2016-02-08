@@ -132,6 +132,11 @@ void draw(){
             if(go instanceof ChaosWizard){
               go.pos.y+=50;
               
+              if(go.pos.y>650){
+                gameState = "gameOver";
+                
+              }//end if
+              
              
             }//end if 
             enemyOnEdge=false;
