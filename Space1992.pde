@@ -134,6 +134,7 @@ void draw(){
               
               if(go.pos.y>650){
                 gameState = "gameOver";
+                getInfernus();
                 
               }//end if
               
@@ -228,6 +229,7 @@ void beginGame(){
   hero.pos.x= centerX;
   createEnemies();
   score=0;
+  randomSong();
   
 }//end beginGame
 
@@ -236,10 +238,8 @@ void viewControls(){
   
 }//end viewControls
 
-void about(){
-  
+void about(){  
   gameState=("aboutGame");
-  randomSong();
   
 }//end about
 
@@ -286,6 +286,15 @@ void randomSong(){
   
 
 }//end randomSong
+
+void getInfernusAdAstra(){
+  songFile="InfernusAdAstra.mp3";
+  
+  player.pause();
+  player = minim.loadFile(songFile, 2048);
+  player.loop();
+  
+}//end getInfernusAdAstra
 
 void keyPressed(){
   keys[keyCode]= true;
