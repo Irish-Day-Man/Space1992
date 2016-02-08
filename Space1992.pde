@@ -8,6 +8,7 @@ import ddf.minim.ugens.*;
 import ddf.minim.effects.*;
 
 ControlP5 cp5;
+ControlP5 cp6;
 
 //create ArrayList for game objects
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
@@ -53,7 +54,9 @@ void setup(){
   cp5.addButton("beginGame").setValue(1).setPosition(100,height-40).setSize(80,20).setLabel("Start Game");
   cp5.addButton("viewControls").setValue(2).setPosition(200, height-40).setSize(80,20).setLabel("View Controls");
   cp5.addButton("about").setValue(0).setPosition(300,height-40).setSize(80,20).setLabel("About");
+  cp6.addButton("easyMode").setValue(0).setPosition(600,height-40).setSize(40,20).setLabel("Easy Mode");
   
+  cp6.hide();
   //set up fonts
   title = createFont("pdark.ttf",33);
   textFont(title);
