@@ -19,7 +19,7 @@ static String gameState;
 static int score = 0;
 
 //boolean to hold value
-static boolean enemyOnEdge;
+boolean enemyOnEdge;
 boolean antiAutoPlay = false;
 
 //create variables to hold key status
@@ -111,20 +111,37 @@ void draw(){
       GameObject go = gameObjects.get(i);
       go.update();
       go.render();
+      
      
     }//end for
-    
-    enemyOnEdge=false;
-    
-    fill(255);
+        
+    stroke(255);
     noFill();
-    rect(400,5,800,800);
+    rect(400,0,800,800);
     textAlign(LEFT);
     textFont(title);
     fill(129,254,166);
     textSize(16);
     
     text("Score: " + score ,100,400);
+    if(frameCount%90==0){
+      
+      if(frameCount>300){
+      
+        if(enemyOnEdge == true){
+          for(int i=gameObjects.size()-1;i>=0;i--){
+            GameObject go = gameObjects.get(i);
+            if(go instanceof ChaosWizard){
+              go.pos.y+=50;
+             
+            }//end if 
+            enemyOnEdge=false;
+          }//end for
+             
+        }//end if
+        
+      }//end framecount>300
+    }//end if
     
     
   }//end else if
@@ -192,9 +209,7 @@ void draw(){
     text("This is you, Angus McFife XIII, Crown Prince of the mighty kingdom of Dundee\n\n\t   SPACE - Swing your mighty Astral Hammer to defeat the Chaos Wizards\n\t   A / D - Move from side to side to dodge the unholy chaos lightning",100,0);
     
     popMatrix();
-    
-    
-    
+        
   }//end else if
 
 }//end draw

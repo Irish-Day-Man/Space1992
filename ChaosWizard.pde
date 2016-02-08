@@ -1,10 +1,7 @@
 class ChaosWizard extends GameObject{
-  
-  //ArrayList<ChaosWizard> forceOfZargothrax = new ArrayList<ChaosWizard>();
  
   ChaosWizard(float startX, float startY){
     super(startX, startY,80,80);
-    //forceOfZargothrax.add(this);
     
   }//end constructor
   
@@ -99,10 +96,11 @@ class ChaosWizard extends GameObject{
   }//end render
   
   void update(){
-    
+        
     if(pos.x<450){
       movementDir=("r");
       enemyOnEdge = true;
+        
       
     }//end if
     
@@ -110,7 +108,7 @@ class ChaosWizard extends GameObject{
       movementDir=("l");
       enemyOnEdge = true;
       
-    }//end if    
+    }//end if
   
     if(frameCount %90 ==0){
       
@@ -119,9 +117,22 @@ class ChaosWizard extends GameObject{
         
       }//end if
       
-      else{
+      else if (movementDir.matches("l")){
         pos.x-=100;
+        
       }//end else
+      
+      if(!(frameCount<120)){
+        
+        if(pos.y>650){
+          gameState = "gameOver";
+            
+        }//end if
+          
+          
+        
+      }//end if
+      
       
       int strikeChance = int(random(1,30));
       if(strikeChance == 2){
@@ -131,19 +142,6 @@ class ChaosWizard extends GameObject{
         chaosLightning.pos.y=pos.y;
         gameObjects.add(chaosLightning);
         
-      }//end if
-      
-      if(!(frameCount<120)){
-        
-        if(enemyOnEdge==true){
-          pos.y += 50;
-          
-          if(pos.y>650){
-            gameState = "gameover";
-            
-          }//end if
-          
-        }//end enemyOnEdge
       }//end if
       
       
