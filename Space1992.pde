@@ -227,6 +227,7 @@ void beginGame(){
   gameObjects.add(hero);
   hero.pos.x= centerX;
   createEnemies();
+  score=0;
   
 }//end beginGame
 
