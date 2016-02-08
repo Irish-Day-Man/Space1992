@@ -112,6 +112,8 @@ void draw(){
       
      
     }//end for
+    
+    checkCollisions();
         
     stroke(255);
     noFill();
@@ -306,3 +308,49 @@ void keyReleased(){
   
 }//end keyreleased
 
+void checkCollisions(){
+  for(int i = gameObjects.size()-1;i>=0;i--){
+    GameObject lightning = gameObjects.get(i);
+    
+    if(lightning instanceof ChaosBolt){
+      for(int j = gameObjects.size()-1;j>=0;j--){
+        GameObject angus = gameObjects.get(j);
+        
+        if(angus instanceof AngusMcFife){
+          if(lightning.pos.x > angus.pos.x && lightning.pos.x<angus.pos.x + angus.objWidth && lightning.pos.y + 40> angus.pos.y && lightning.pos.y + 40 < angus.pos.y + angus.objHeight){
+            gameObjects.remove(i);
+            gameState = "gameOver";
+                        
+          }
+          
+        }//end if
+        
+      }//end for
+      
+    }//end if
+    
+  }//end for
+  for(int i = gameObjects.size()-2; i>=0; i--){
+    GameObject hammer = gameObjects.get(i);
+    
+    if(hammer instanceof AstralHammer){
+      for(int j= gameObjects.size()-1; j>=0; j--){
+        GameObject wizard =gameObjects.get(j);
+        
+        if(wizard instanceof ChaosWizard){
+          if(hammer.pos.x> wizard.pos.x && hammer.pos.x < wizard.pos.x + wizard.objWidth && hammer.pos.y> wizard.pos.y && hammer.pos.y < wizard.pos.y + wizard.objHeight){
+            gameObjects.remove(wizard);
+            gameObjects.remove(hammer);
+            wizNum-=1;
+            score+=105;
+          }//end if
+          
+        }//end if
+        
+      }//end for
+      
+    }//end if
+    
+  }//end for
+  
+}//end checkCollisions
