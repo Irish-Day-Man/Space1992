@@ -104,6 +104,13 @@ void draw(){
   else if(gameState.matches("gameOn")){
     image(backgroundImage,0,0);
     cp5.hide();
+    for(int i=gameObjects.size()-1; i>=0; i--){
+      GameObject go = gameObjects.get(i);
+      go.update();
+      go.render();
+     
+    }//end for
+    
     
   }//end else if
   
@@ -180,7 +187,7 @@ void draw(){
 void beginGame(){
   gameState=("gameOn");
   AngusMcFife hero = new AngusMcFife('A','D',' ', centerX, heightVal);
-  
+  gameObjects.add(hero);
   
 }//end beginGame
 
