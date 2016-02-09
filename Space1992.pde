@@ -85,11 +85,6 @@ void setup(){
   
   readInData();
   
-  for(int i=0;i<hiScorez.length;i++){
-    System.out.println(hiScorez[i]);
-    
-  }//end for
-  
 }//end setup
 
 
@@ -277,7 +272,7 @@ void draw(){
     
     generalText = createFont("cs.ttf", 32);
     textFont(generalText);
-    text("And with a thunderous implosion, Angus McFife swings his Astral Hammen\n and decimates the very existence of the Evil Wizard Zargothrax\nReleasing his control over his army of undead unicorns\n and his control over his undead army of Chaos Wizards\n\nAngus McFife is once again victorious and has once again,\n protected the mighty citadel of Dundee and its eternal glory!",width/2,300);
+    text("And with a thunderous implosion, Angus McFife swings his Astral Hammer\n and decimates the very existence of the Evil Wizard Zargothrax\nReleasing his control over his army of undead unicorns\n and his control over his undead army of Chaos Wizards\n\nAngus McFife is once again victorious and has once again,\n protected the mighty citadel of Dundee and its eternal glory!",width/2,300);
     
     if(gamePlayed == true){
       //code to sort hiScores
@@ -325,7 +320,7 @@ void draw(){
         output = createWriter(fileName);
         for(int i=0;i<hiScorez.length;i++){
           if(i<=1){
-            output.println(hiScorez[i] + "\n");
+            output.println(hiScorez[i]);
           }//end if
           
           else{
@@ -506,13 +501,6 @@ void checkWizardDeath(){
 
 void readInData(){
   hiScorez = loadStrings("hiScores.txt");
-  for(int i=0;i<hiScorez.length;i++){
-    System.out.println("Hello"+ hiScorez[i]);
-    
-    
-    
-    
-  }//end for
     
 }//end readInData
 
