@@ -348,14 +348,6 @@ void draw(){
     
   }//end else if
   
-  if(key=='l'){
-    
-    score = 1000;
-    gameState= "victory";
-    
-    
-  }//end if
-
 }//end draw
 
 void beginGame(){
