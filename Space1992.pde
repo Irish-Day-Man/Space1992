@@ -227,6 +227,11 @@ void draw(){
 
 void beginGame(){
   gameState=("gameOn");
+  score=0;
+  for(int i=gameObjects.size()-1;i>=0;i--){
+    gameObjects.remove(i);
+    
+  }//end for
   image(backgroundImage,0,0);
   gameObjects.add(hero);
   hero.pos.x= centerX;

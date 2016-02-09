@@ -38,7 +38,7 @@ class ChaosBolt extends GameObject{
   void update(){
     pos.y+=5;
     
-    if(pos.y>height){
+    if(pos.y+14>820){
       gameObjects.remove(this);
       
     }//end if

@@ -67,7 +67,7 @@ class AngusMcFife extends GameObject{
       hammer.pos.x=pos.x;
       hammer.pos.y=pos.y;
       gameObjects.add(hammer);
-      score -=5;
+      score -=75;
       recoveryTime=0;
     }//end 
     
