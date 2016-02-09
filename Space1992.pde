@@ -483,7 +483,7 @@ void checkWizardDeath(){
             gameObjects.remove(wizard);
             hammer.pos.x=500000;
             
-            score+=105;
+            score+=175;
             wizDestroyed+=1;
             
             
