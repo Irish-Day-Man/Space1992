@@ -1,5 +1,7 @@
 import controlP5.*;
 
+import java.io.File;
+
 import ddf.minim.spi.*;
 import ddf.minim.signals.*;
 import ddf.minim.*;
@@ -20,7 +22,7 @@ static String movementDir="r";
 static String gameState;
 static int score = 0;
 
-//int array for holding hiscore
+boolean gamePlayed= false;
 
 
 //boolean to hold value
@@ -275,16 +277,89 @@ void draw(){
     
     generalText = createFont("cs.ttf", 32);
     textFont(generalText);
-    text("And with a thunderous implosion, Angus McFife swings his Astral Hammer and decimates the very existence of the Evil Wizard Zargothrax\nReleasing his control over his army of undead unicorns and his control over his undead army of Chaos Wizards\nAngus McFife is once again victorious and has once again protected the mighty citadel of Dundee and its eternal glory!",width/2,300);
+    text("And with a thunderous implosion, Angus McFife swings his Astral Hammen\n and decimates the very existence of the Evil Wizard Zargothrax\nReleasing his control over his army of undead unicorns\n and his control over his undead army of Chaos Wizards\n\nAngus McFife is once again victorious and has once again,\n protected the mighty citadel of Dundee and its eternal glory!",width/2,300);
     
+    if(gamePlayed == true){
+      //code to sort hiScores
+      if(score>Integer.parseInt(hiScorez[2])){
+        text("You achieved a high score!",width/2,500);
+        
+        boolean flag = true;
+        int temp;
+        int [] tempScores = new int[4];
+        tempScores[3] = score;
+        
+        for(int i=0;i<3;i++){
+          tempScores[i] = Integer.parseInt(hiScorez[i]);
+          
+        }//end for
+        
+        while(flag){
+          
+          flag=false;
+          for(int j=0;j<tempScores.length-1;j++){
+            if(tempScores[j] < tempScores[j+1]){
+              temp=tempScores[j];
+              tempScores[j] = tempScores[j+1];
+              tempScores[j+1] = temp;
+              flag= true;
+              
+            }//end if
+            
+          }//end for
+          
+        }//end while
+        
+        for(int i=0;i<tempScores.length-1;i++){
+          hiScorez[i]= Integer.toString(tempScores[i]);
+          
+        }//end for
+        
+        String fileName = dataPath("hiScores.txt");
+        File f = new File(fileName);
+        if(f.exists()){
+          f.delete();
+          
+        }//end if
+        PrintWriter output;
+        output = createWriter(fileName);
+        for(int i=0;i<hiScorez.length;i++){
+          if(i<=1){
+            output.println(hiScorez[i] + "\n");
+          }//end if
+          
+          else{
+            output.println(hiScorez[i]);
+            
+          }
+          
+        }//end for
+        
+        output.flush();
+        output.close();
+        
+        gamePlayed = false;
+        
+      }//end if
+ 
+     
+    }//end if 
     
-
     
   }//end else if
+  
+  if(key=='l'){
+    
+    score = 1000;
+    gameState= "victory";
+    
+    
+  }//end if
 
 }//end draw
 
 void beginGame(){
+  gamePlayed = true;
   wizDestroyed = 0;
   gameState=("gameOn");
   score=0;
