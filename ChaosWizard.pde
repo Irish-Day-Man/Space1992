@@ -134,7 +134,7 @@ class ChaosWizard extends GameObject{
       }//end if
       
       
-      int strikeChance = int(random(1,30));
+      int strikeChance = int(random(1,30-wizDestroyed));
       if(strikeChance == 2){
         
         ChaosBolt chaosLightning = new ChaosBolt();

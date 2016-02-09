@@ -10,6 +10,8 @@ import ddf.minim.effects.*;
 ControlP5 cp5;
 ControlP5 cp6;
 
+int wizDestroyed = 0;
+
 //create ArrayList for game objects
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
@@ -36,9 +38,6 @@ Minim minim;
 AudioPlayer player;
 
 String songFile;
-
-//integer to hold the number of wizards
-int wizNum=0;
 
 float centerX = 1600/2-40;
 float heightVal = 900-150;
@@ -112,9 +111,13 @@ void draw(){
       checkWizardDeath(); 
       checkPlayerDeath();
       
+      if(wizDestroyed==20){
+        cp5.show();
+        gameState="victory";
+        
+      }//end if
+      
     }//end for
-    
-    
         
     stroke(255);
     noFill();
@@ -222,10 +225,31 @@ void draw(){
     popMatrix();
         
   }//end else if
+  
+  else if(gameState.matches("victory")){
+    image(backgroundImage,0,0);
+    textAlign(CENTER);
+    fill(0);
+    textFont(title);
+    textSize(33);
+    text("Victory!",width/2,100);
+    fill(129,254,166);
+    textSize(32);
+    text("Victory!",width/2,100);
+    
+    generalText = createFont("cs.ttf", 32);
+    textFont(generalText);
+    text("And with a thunderous implosion, Angus McFife swings his Astral Hammer and decimates the very existence of the Evil Wizard Zargothrax\nReleasing his control over his army of undead unicorns and his control over his undead army of Chaos Wizards\nAngus McFife is once again victorious and has once again protected the mighty citadel of Dundee and its eternal glory!",width/2,300);
+    
+    
+
+    
+  }//end else if
 
 }//end draw
 
 void beginGame(){
+  wizDestroyed = 0;
   gameState=("gameOn");
   score=0;
   for(int i=gameObjects.size()-1;i>=0;i--){
@@ -256,7 +280,7 @@ void createEnemies(){
     for(int j=0;j<400;j+=100){
       ChaosWizard enemy = new ChaosWizard(i, j);
       gameObjects.add(enemy);
-      wizNum +=1;
+
     }//end for
     
   }//end for
@@ -354,9 +378,9 @@ void checkWizardDeath(){
             hammer.pos.x=500000;
             
             score+=105;
+            wizDestroyed+=1;
             
             
-            wizNum-=1;
           }//end if
           
         }//end if
