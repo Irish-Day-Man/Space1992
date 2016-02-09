@@ -255,6 +255,11 @@ void draw(){
     fill(129,254,166);
     text("This is you, Angus McFife XIII, Crown Prince of the mighty kingdom of Dundee\n\n\t   SPACE - Swing your mighty Astral Hammer to defeat the Chaos Wizards\n\t   A / D - Move from side to side to dodge the unholy chaos lightning",100,0);
     
+    ChaosWizard spookyGhostWizard = new ChaosWizard(0,150);
+    spookyGhostWizard.render();
+    fill(129,254,166);
+    text("This is a Chaos Wizard, eternally loyal to the evil wizard Zargothrax.\nThese will shoot spooky chaos lightning which is not good for yon and will result in a painful death",100,200);
+    
     popMatrix();
         
   }//end else if
