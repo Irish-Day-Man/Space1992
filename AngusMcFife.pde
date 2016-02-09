@@ -3,30 +3,16 @@ class AngusMcFife extends GameObject{
   char left;
   char right;
   char swing;
-  int health;
-  
   
   AngusMcFife(char left, char right, char swing, float startX, float startY){
     super(startX, startY,80, 80);
     this.left = left;
     this.right = right;
     this.swing = swing;
-    health = 10;
-    println(startX, startY);
     
   }//end constructor
   
   int recoveryTime = 9;
-  
-  int getHealth(){
-    return health;  
-    
-  }
-  
-  void setHealth(int health){
-    this.health = health;
-    
-  }//end setHealth
   
   public void render(){
     noStroke();

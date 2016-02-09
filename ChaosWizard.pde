@@ -110,7 +110,7 @@ class ChaosWizard extends GameObject{
       
     }//end if
   
-    if(frameCount %90 ==0){
+    if(frameCount %120 ==0){
       
       if(movementDir.matches("r")){
         pos.x += 100;
