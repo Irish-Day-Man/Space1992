@@ -20,6 +20,9 @@ static String movementDir="r";
 static String gameState;
 static int score = 0;
 
+//int array for holding hiscore
+
+
 //boolean to hold value
 boolean enemyOnEdge;
 boolean antiAutoPlay = false;
@@ -33,6 +36,8 @@ PImage backgroundImage;
 //PFont
 PFont title;
 PFont generalText;
+
+String[] hiScorez;
 
 Minim minim;
 AudioPlayer player;
@@ -59,6 +64,7 @@ void setup(){
   cp5.addButton("beginGame").setValue(1).setPosition(100,height-40).setSize(80,20).setLabel("Start Game");
   cp5.addButton("viewControls").setValue(2).setPosition(200, height-40).setSize(80,20).setLabel("View Controls");
   cp5.addButton("about").setValue(0).setPosition(300,height-40).setSize(80,20).setLabel("About");
+  cp5.addButton("hiScores").setValue(3).setPosition(400,height-40).setSize(80,20).setLabel("Hi-Scores");
 
   //set up fonts
   title = createFont("pdark.ttf",33);
@@ -74,6 +80,13 @@ void setup(){
   textFont(generalText);
   text("In the distant future of the year 1992, War has returned to the galaxy...\nThe evil wizard Zargothrax has broken free from his prison of liquid ice on Saturn's moon Triton\nand has raised an army of chaos wizards to conquer the galaxy\nCan you, as the legendary hero, Angus McFife XIII,\nsave the mighty citadel of Dundee and the rest of the Galaxy?\nRide forth for the eternal glory of Dundee!", width/2, 300);
   gameState = "homeScreen";
+  
+  readInData();
+  
+  for(int i=0;i<hiScorez.length;i++){
+    System.out.println(hiScorez[i]);
+    
+  }//end for
   
 }//end setup
 
@@ -156,6 +169,29 @@ void draw(){
     
     
   }//end else if
+  
+  else if(gameState.matches("hiScores")){
+    image(backgroundImage,0,0);
+    title = createFont("pdark.ttf",33);
+    textFont(title);
+    fill(0);
+    textAlign(CENTER);
+    text("Space 1992: The Rise of The Chaos Wizards!", width/2, 100);
+    fill(129,254,166);
+    textSize(32);
+    text("Space 1992: The Rise of The Chaos Wizards!", width/2, 100);
+    
+    generalText = createFont("cs.ttf", 32);
+    textFont(generalText);
+    
+    text("Hi Scores: ",width/2, 250);
+    
+    for(int i=0;i<hiScorez.length;i++){
+          text((i+1) + ": " + hiScorez[i],width/2,300 + (40*i));      
+      
+    }//end for
+    
+  }//end if
   
   else if(gameState.matches("gameOver")){
     image(backgroundImage,0,0);
@@ -389,6 +425,23 @@ void checkWizardDeath(){
       
     }//end if
     
-  }//end for   
+  }//end for
   
 }//end checkWizardDeath
+
+void readInData(){
+  hiScorez = loadStrings("hiScores.txt");
+  for(int i=0;i<hiScorez.length;i++){
+    System.out.println("Hello"+ hiScorez[i]);
+    
+    
+    
+    
+  }//end for
+    
+}//end readInData
+
+void hiScores(){
+  gameState="hiScores";  
+  
+}//end hiScores
