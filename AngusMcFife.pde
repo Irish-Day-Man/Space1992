@@ -37,7 +37,7 @@ class AngusMcFife extends GameObject{
     rect(10,15,50,10); 
     popMatrix();
     
-  }
+  }//end render
   
   public void update(){
     
@@ -69,10 +69,10 @@ class AngusMcFife extends GameObject{
       gameObjects.add(hammer);
       score -=75;
       recoveryTime=0;
-    }//end 
+    }//end swinging
     
     recoveryTime+=1;
     
   }//end update
   
-}
+}//end class

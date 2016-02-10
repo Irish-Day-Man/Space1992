@@ -25,6 +25,7 @@ class AstralHammer extends GameObject{
       gameObjects.remove(this);
       
     }//end if
-  }
+    
+  }//end uodate
   
 }//end class
